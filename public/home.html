@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #333;
+    }
+
+    .container {
+      background: linear-gradient(135deg, #007BFF, #000000);
+      color: white;
+      width: 100%;
+      max-width: 2000px;
+      position: absolute;
+      top: 0;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+      color: #007BFF;
+      background: linear-gradient(135deg, #007BFF, #00FF00); 
+      -webkit-background-clip: text; 
+      -webkit-text-fill-color: transparent; 
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: #007BFF;
+    }
+
+    .logout-button-container {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+
+    button {
+      width: auto;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 7px;
+      background-color: #FF0000; /* Red background color */
+      color: white; /* Text color */
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .employee-details {
+      display: none; /* Hide by default */
+      background: #fff; /* White background for the details section */
+      padding: 20px; /* Padding around the content */
+      border-radius: 10px; /* Rounded corners */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+      max-width: 800px; /* Increase the width */
+      margin: 0 auto; /* Center the element */
+    }
+
+    .employee-details h3 {
+      border-bottom: 2px solid #007BFF; /* Blue underline */
+      padding-bottom: 10px; /* Padding under the title */
+      margin-bottom: 20px; /* Space under the title */
+      color: #007BFF; /* Blue color for the title */
+    }
+
+    .employee-details table {
+      width: 90%;
+      border-collapse: collapse;
+    }
+
+    .employee-details td {
+      padding: 50px; /* Increase the padding */
+      font-size: 1rem; /* Increase the font size */
+      text-align: left;
+    }
+
+    .employee-details tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    .employee-details td:first-child {
+      font-weight: bold;
+      width: 30%;
+      text-align: left;
+    }
+
+    .employee-details td:nth-child(odd) {
+      text-align: left;
+    }
+
+    nav {
+      position: fixed;
+      top: 20px;
+      bottom: 20px;
+      left: 0;
+      width: 100px;
+      color: #333;
+      background: linear-gradient(135deg, #007BFF, #00FF00); 
+      -webkit-background-clip: text; 
+      -webkit-text-fill-color: transparent; 
+      padding-top: 120px;
+      font-size: 1.2rem;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .project-details {
+      display: none; /* Hide by default */
+      background: #e9ecef; /* Light grey background for the details section */
+      padding: 20px; /* Padding around the content */
+      border-radius: 10px; /* Rounded corners */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+      max-width: 800px; /* Increase the width */
+      margin: 0 auto; /* Center the element */
+    }
+
+    .project-details h3 {
+      border-bottom: 2px solid #333; /* Dark underline */
+      padding-bottom: 10px; /* Padding under the title */
+      margin-bottom: 20px; /* Space under the title */
+      color: #333; /* Dark color for the title */
+    }
+
+    .project-details table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .project-details td {
+      padding: 15px; /* Padding */
+      font-size: 1rem; /* Font size */
+      text-align: left;
+    }
+
+    .project-details tr:nth-child(even) {
+      background-color: #f8f9fa; /* Even rows background color */
+    }
+
+    .project-details td:first-child {
+      font-weight: bold;
+      width: 30%;
+      text-align: left;
+    }
+
+    .project-details td:nth-child(odd) {
+      text-align: left;
+    }
+
+  </style>
+</head>
+<body>   
+  <nav>
+    <ul>
+      <li><a href="#" id="dashboardButton">Dashboard</a></li>
+      <li><a href="#" id="projectsButton">Projects</a></li>
+      <li><a href="#">Tenants</a></li>
+      <li><a href="#">Finance</a></li>
+      <li><a href="#">ToDo List</a></li>
+      <li><a href="#">Calendar</a></li>
+      <li><a href="#">People</a></li>
+    </ul>
+  </nav>
+  <div class="container"> 
+    <div class="logout-button-container">
+      <button id="logoutButton">Logout</button>
+    </div>
+    <h1> John Technology Pvt. Ltd. </h1>
+    <h2>Welcome Home!</h2>
+    <p id="welcomeMessage"></p>
+  </div>
+  
+  <!-- Employee Details Section -->
+  <div class="employee-details" id="employeeDetails">
+    <h1>EMPLOYEE DETAILS</h1>
+    <table>
+      <tr>
+        <td><strong><h4>USERNAME:<h4></strong></td>
+        <td><span id="employeeUsername"></span></td>
+        <td><strong>EMAIL ID:</strong>
+        <td><span id="employeeEmail"></span></td>
+        <tr>
+        </tr>       
+        <td><strong>USER ID:</strong></td>
+        <td><span id="employeeUserID"></span></td></td>
+        <td><strong>DATE OF BIRTH:</strong></td>
+        <td><span id="employeeDOB"></span></td>
+        <tr>
+        </tr>   
+        <td><strong>DATE OF JOINING:</strong></td>
+        <td><span id="employeeDOJ"></span></td></td>
+        <td><strong>PHONE NUMBER:</strong></td>
+        <td><span id="employeePhone"></span></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Project Details Section -->
+  <div class="project-details" id="projectDetails">
+    <h1>PROJECT DETAILS</h1>
+    <table>
+      <tr>
+        <td><strong>Project Name:</strong></td>
+        <td>Sample Project</td>
+      </tr>
+      <tr>
+        <td><strong>Project ID:</strong></td>
+        <td>123456</td>
+      </tr>
+      <tr>
+        <td><strong>Project Manager:</strong></td>
+        <td>John Doe</td>
+      </tr>
+      <tr>
+        <td><strong>Project Deadline:</strong></td>
+        <td>30th June 2024</td>
+      </tr>
+    </table>
+  </div>
+
+  <script src="homeScript.js"></script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+   body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #007BFF, #000000);
+}
+
+.main-container {
+  display: flex;
+  width: 50%;
+  max-width: 900px;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.welcome-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  padding: 10px;
+  text-align: center;
+  background: linear-gradient(135deg, #007BFF, #000000);
+  -webkit-background-clip: text; /* Apply gradient to text */
+  color: transparent; /* Set text color to transparent */
+}
+
+
+.login-container {
+  padding: 70px;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-container h2 {
+  margin-bottom: 40px;
+  text-align: center; /* Center the text */
+  color: white; /* Set text color to white */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a text shadow */
+  padding: 10px; /* Add padding */
+  background: linear-gradient(135deg, #007BFF, #000000); /* Add background gradient */
+  -webkit-background-clip: text; /* Apply gradient to text */
+  -webkit-text-fill-color: transparent; /* Hide original text color */
+  font-size: 36px; /* Set the font size to 36px or any other value you prefer */
+  margin-bottom: 20px; /* Adjust margin as needed */
+}
+
+.login-container label {
+  background: linear-gradient(135deg,#000000, #007BFF);
+  -webkit-background-clip: text; /* Apply gradient to text */
+  color: transparent; /* Set text color to transparent */
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-container label {
+  margin-bottom: 5px;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.login-container button {
+  padding: 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.login-container button:hover {
+  background-color: #0056b3;
+}
+
+.login-container #error-message {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+}
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <div class="welcome-container">
+      <div>
+        <h1>Welcome To</h1>
+        <h1>John Technology Pvt. Ltd.</h1>
+      </div>
+    </div>
+    <div class="login-container">
+      <h2>Login</h2>
+      <form id="login-form">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Login</button>
+      </form>
+      <p id="error-message"></p>
+    </div>
+  </div>
+  <script src="loginScript.js"></script>
+</body>
+</html>
